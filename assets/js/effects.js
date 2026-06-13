@@ -20,20 +20,26 @@ function initSnow() {
       detectRetina: true,
       fullScreen: { enable: false },
       particles: {
-        number: { value: 110, density: { enable: true, area: 900 } },
-        color: { value: ['#ffffff', '#bfe9ff', '#ffd76a'] },
-        opacity: { value: { min: 0.2, max: 0.85 } },
-        size: { value: { min: 1, max: 4 } },
+        // gentle, natural snowfall — calm density, soft depth, lazy sway
+        number: { value: 65, density: { enable: true, area: 1000 } },
+        color: { value: ['#ffffff', '#eaf6ff', '#dceefc'] },
         shape: { type: 'circle' },
+        opacity: {
+          value: { min: 0.08, max: 0.65 },
+          animation: { enable: true, speed: 0.35, sync: false, startValue: 'random' },
+        },
+        size: { value: { min: 0.8, max: 4 } },
         move: {
           enable: true,
           direction: 'bottom',
-          speed: { min: 0.6, max: 2.2 },
+          speed: { min: 0.25, max: 1.0 },   // slow, drifting descent
           straight: false,
-          drift: { min: -0.6, max: 0.6 },
-          outModes: { default: 'out', bottom: 'out', top: 'none' },
+          drift: { min: -0.35, max: 0.35 },  // subtle horizontal wander
+          outModes: { default: 'out', top: 'none' },
         },
-        wobble: { enable: true, distance: 8, speed: 4 },
+        // soft side-to-side swaying like real flakes catching air
+        wobble: { enable: true, distance: 14, speed: { min: -2.5, max: 2.5 } },
+        zIndex: { value: { min: 0, max: 40 }, opacityRate: 0.5 },
       },
       emitters: [],
     },

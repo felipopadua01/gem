@@ -26,8 +26,8 @@
       <div class="container-x text-center max-w-2xl mx-auto reveal">
         <span class="pill mb-4">🎁 The Sleaze Machine</span>
         <h1 class="headline text-6xl sm:text-7xl mb-4">Unwrap your <span class="neon-red">face</span></h1>
-        <p class="text-[var(--muted)]">Upload a photo, tune the festive vibe, then hit generate to watch the gift box burst open. Everything runs in your browser.</p>
-        <p class="text-xs text-[var(--muted)] mt-3 opacity-70">⚙️ AI face-to-meme model coming soon — this demo composites a festive overlay as a live placeholder.</p>
+        <p class="text-[var(--muted)]">Upload a photo, choose your mode, then hit generate to watch the gift box burst open. Your photo is processed in your browser — AI calls go straight to your provider.</p>
+        <p class="text-xs text-[var(--muted)] mt-3 opacity-70">✨ <b>AI mode</b> swaps in a luxury billionaire-Santa fit while preserving your face &amp; pose (needs an API key). 🎨 <b>Quick overlay</b> works instantly, no key.</p>
       </div>
     </section>
 
@@ -44,30 +44,64 @@
           </div>
 
           <div id="controls" class="card p-6 opacity-40 pointer-events-none transition">
-            <div class="eyebrow mb-4">Sleaze controls</div>
-
-            <label class="flex items-center justify-between py-2 cursor-pointer">
-              <span class="text-sm font-semibold">🎅 Santa hat</span>
-              <input type="checkbox" id="optHat" checked class="w-5 h-5 accent-[var(--red)]" />
-            </label>
-
-            <div class="py-2">
-              <div class="flex items-center justify-between text-sm font-semibold mb-2">
-                <span>❄️ Snow intensity</span>
-              </div>
-              <input type="range" id="optSnow" min="0" max="100" value="60" class="w-full accent-[var(--green)]" />
+            <!-- mode toggle -->
+            <div class="flex gap-2 p-1 rounded-xl bg-[rgba(255,255,255,.04)] mb-5">
+              <button data-mode="ai" class="mode-btn flex-1 py-2 rounded-lg text-sm font-bold transition">✨ AI Billionaire Santa</button>
+              <button data-mode="overlay" class="mode-btn flex-1 py-2 rounded-lg text-sm font-bold transition">🎨 Quick Overlay</button>
             </div>
 
-            <div class="py-2">
-              <div class="text-sm font-semibold mb-3">🖼️ Neon frame</div>
-              <div class="flex gap-3">
-                <button data-frame="red"   class="flex-1 h-10 rounded-lg ring-2 ring-offset-2 ring-offset-[var(--surface)]" style="background:#ff2d55;"></button>
-                <button data-frame="green" class="flex-1 h-10 rounded-lg ring-offset-2 ring-offset-[var(--surface)]" style="background:#2bff88;"></button>
-                <button data-frame="gold"  class="flex-1 h-10 rounded-lg ring-offset-2 ring-offset-[var(--surface)]" style="background:#ffd76a;"></button>
+            <!-- AI panel -->
+            <div id="aiPanel">
+              <div class="eyebrow mb-3">AI outfit swap</div>
+              <p class="text-xs text-[var(--muted)] mb-3 leading-relaxed">
+                Keeps your face &amp; pose, swaps in a luxury velvet Santa fit, diamond grillz &amp; iced-out chains. 🧊💎
+              </p>
+              <label class="text-xs font-semibold block mb-1">API key</label>
+              <input id="apiKey" type="password" autocomplete="off" placeholder="Paste your Gemini API key"
+                     class="w-full px-3 py-2 rounded-lg bg-[rgba(255,255,255,.05)] border border-[var(--line)] text-sm outline-none focus:border-[var(--green)]" />
+              <p class="text-[11px] text-[var(--muted)] mt-2 leading-relaxed">
+                🔒 Stored only in your browser (localStorage). Get a free key at
+                <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" class="neon-green underline">Google AI Studio</a>.
+              </p>
+
+              <button id="advancedToggle" type="button" class="text-xs text-[var(--muted)] hover:text-white mt-4 underline">⚙️ Advanced (model &amp; prompt)</button>
+              <div id="advanced" class="hidden mt-3 space-y-3">
+                <div>
+                  <label class="text-xs font-semibold block mb-1">Model</label>
+                  <input id="modelId" type="text" class="w-full px-3 py-2 rounded-lg bg-[rgba(255,255,255,.05)] border border-[var(--line)] text-sm outline-none focus:border-[var(--green)]" />
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label class="text-xs font-semibold">Prompt</label>
+                    <button id="resetPrompt" type="button" class="text-[11px] text-[var(--muted)] hover:text-white underline">reset</button>
+                  </div>
+                  <textarea id="promptText" rows="6" class="w-full px-3 py-2 rounded-lg bg-[rgba(255,255,255,.05)] border border-[var(--line)] text-xs leading-relaxed outline-none focus:border-[var(--green)] no-scrollbar"></textarea>
+                </div>
               </div>
             </div>
 
-            <button id="generateBtn" class="btn btn-red w-full justify-center mt-5 text-base">🎁 Unwrap My Sleaze</button>
+            <!-- Overlay panel -->
+            <div id="overlayPanel" class="hidden">
+              <div class="eyebrow mb-4">Festive overlay (no key needed)</div>
+              <label class="flex items-center justify-between py-2 cursor-pointer">
+                <span class="text-sm font-semibold">🎅 Santa hat</span>
+                <input type="checkbox" id="optHat" checked class="w-5 h-5 accent-[var(--red)]" />
+              </label>
+              <div class="py-2">
+                <div class="text-sm font-semibold mb-2">❄️ Snow intensity</div>
+                <input type="range" id="optSnow" min="0" max="100" value="60" class="w-full accent-[var(--green)]" />
+              </div>
+              <div class="py-2">
+                <div class="text-sm font-semibold mb-3">🖼️ Neon frame</div>
+                <div class="flex gap-3">
+                  <button data-frame="red"   class="flex-1 h-10 rounded-lg ring-2 ring-offset-2 ring-offset-[var(--surface)]" style="background:#ff2d55;"></button>
+                  <button data-frame="green" class="flex-1 h-10 rounded-lg ring-offset-2 ring-offset-[var(--surface)]" style="background:#2bff88;"></button>
+                  <button data-frame="gold"  class="flex-1 h-10 rounded-lg ring-offset-2 ring-offset-[var(--surface)]" style="background:#ffd76a;"></button>
+                </div>
+              </div>
+            </div>
+
+            <button id="generateBtn" class="btn btn-red w-full justify-center mt-5 text-base">🎁 Sleaze Me (AI)</button>
           </div>
         </div>
 
@@ -99,7 +133,7 @@
                     <path d="M80 28 C 60 -2, 30 8, 68 30 Z" fill="#ffd76a"/>
                     <path d="M80 28 C 100 -2, 130 8, 92 30 Z" fill="#ffd76a"/>
                   </svg>
-                  <p class="mt-6 font-display text-2xl neon-gold animate-pulse">Unwrapping…</p>
+                  <p id="giftLabel" class="mt-6 font-display text-2xl neon-gold animate-pulse">Unwrapping…</p>
                 </div>
               </div>
             </div>

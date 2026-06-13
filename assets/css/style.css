@@ -222,6 +222,16 @@ body::after {
   box-shadow: var(--glow-green);
 }
 .stage-canvas { max-width: 100%; border-radius: 14px; display: block; }
+#resultImg { width: 100%; border-radius: 14px; display: block; }
+
+/* mode toggle */
+.mode-btn { color: var(--muted); }
+.mode-btn:hover { color: var(--text); }
+.mode-btn.mode-active {
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,45,85,.9), rgba(255,0,51,.9));
+  box-shadow: var(--glow-red);
+}
 
 /* gift-box reveal overlay */
 .gift-overlay {

@@ -173,14 +173,22 @@ function roundRect(ctx, x, y, w, h, r) {
 
 /* ================================================================
    IMAGE GENERATION
-   ai mode  -> callGemini()  (real outfit swap, identity preserved)
-   overlay  -> festive canvas composite
+   'free'   -> Pollinations.ai (no key, text-to-image, instant)
+   'gemini' -> callGemini()  (free key, identity-preserving outfit swap)
+   'overlay'-> festive canvas composite (no key)
    ================================================================ */
 async function generateImage() {
-  if (GENS.mode === 'overlay' || !GENS.settings.apiKey) {
+  if (GENS.mode === 'overlay') {
     renderForOverlay();
     return GENS.canvas.toDataURL('image/png');
   }
+  if (GENS.mode === 'free') {
+    return await callPollinations({
+      prompt: buildPollinationsPrompt(),
+      seed: Math.floor(Math.random() * 1e6),
+    });
+  }
+  // gemini (identity-preserving)
   const { base64, mimeType } = getSourceBase64(1024);
   return await callGemini({
     base64, mimeType,
@@ -193,6 +201,29 @@ async function generateImage() {
 function renderForOverlay() {
   const prev = GENS.mode; GENS.mode = 'overlay';
   renderPreview(); GENS.mode = prev;
+}
+
+/* ---- Pollinations.ai : free, no API key, text-to-image ----
+   Generates a fresh "billionaire Santa" from the prompt. It does NOT
+   trace the uploaded face (text-to-image) — that's the trade-off for
+   being 100% free with zero setup. The photo's only used for an
+   optional subject hint (e.g. "a man" / "a woman" / "a cartoon").   */
+function buildPollinationsPrompt() {
+  const hint = (document.getElementById('subjectHint')?.value || '').trim();
+  const subject = hint || 'a person';
+  return `${subject} as a luxury billionaire Santa Claus, premium red velvet coat with thick white fur trim, elegant matching Santa hat, shiny diamond grillz on teeth, multiple gold and platinum iced-out cuban link chains, diamond-encrusted luxury watch, diamond rings and bracelets, opulent festive Christmas billionaire aesthetic, dramatic studio lighting, snow, ultra detailed, photorealistic, sharp focus, high quality portrait`;
+}
+
+function callPollinations({ prompt, seed }) {
+  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}`
+    + `?width=1024&height=1024&model=flux&nologo=true&seed=${seed}`;
+  return new Promise((resolve, reject) => {
+    const img = new Image();              // no crossOrigin: display + <a download> work without CORS
+    const timer = setTimeout(() => reject(new Error('Free generator timed out — try again.')), 70000);
+    img.onload = () => { clearTimeout(timer); resolve(url); };
+    img.onerror = () => { clearTimeout(timer); reject(new Error('Free generator is busy — try again in a moment.')); };
+    img.src = url;
+  });
 }
 
 /* Google Gemini image model — browser-callable image editing.
@@ -236,8 +267,8 @@ async function callGemini({ base64, mimeType, prompt, key, model }) {
 /* ---------------- gift-box reveal flow ---------------- */
 async function runGenerate() {
   if (!GENS.sourceImg) { toast('Upload a photo first 🎅'); return; }
-  if (GENS.mode === 'ai' && !GENS.settings.apiKey) {
-    toast('Add your API key for AI mode, or switch to Quick overlay 🔑');
+  if (GENS.mode === 'gemini' && !GENS.settings.apiKey) {
+    toast('Add your API key for HD mode, or switch to Free / Quick 🔑');
     document.getElementById('apiKey')?.focus();
     return;
   }
@@ -246,7 +277,8 @@ async function runGenerate() {
   const label = document.getElementById('giftLabel');
   overlay.classList.remove('hidden');
   resetGift();
-  label.textContent = GENS.mode === 'ai' ? 'Sleazing… (AI is wrapping your gift)' : 'Unwrapping…';
+  const labels = { free: 'Sleazing… (free AI is cooking)', gemini: 'Sleazing… (AI is wrapping your gift)', overlay: 'Unwrapping…' };
+  label.textContent = labels[GENS.mode] || 'Unwrapping…';
 
   if (window.gsap) {
     const tl = gsap.timeline();
@@ -352,10 +384,11 @@ function setMode(mode) {
   GENS.mode = mode;
   document.querySelectorAll('[data-mode]').forEach(b =>
     b.classList.toggle('mode-active', b.dataset.mode === mode));
-  document.getElementById('aiPanel').classList.toggle('hidden', mode !== 'ai');
+  document.getElementById('freePanel').classList.toggle('hidden', mode !== 'free');
+  document.getElementById('aiPanel').classList.toggle('hidden', mode !== 'gemini');
   document.getElementById('overlayPanel').classList.toggle('hidden', mode !== 'overlay');
-  const btn = document.getElementById('generateBtn');
-  btn.textContent = mode === 'ai' ? '🎁 Sleaze Me (AI)' : '🎨 Quick Overlay';
+  const labels = { free: '🎁 Sleaze Me (Free)', gemini: '💎 Sleaze Me (HD)', overlay: '🎨 Quick Overlay' };
+  document.getElementById('generateBtn').textContent = labels[mode] || '🎁 Sleaze Me';
   if (GENS.sourceImg) { showCanvas(); renderPreview(); }
 }
 
@@ -409,5 +442,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('shareBtn').addEventListener('click', shareResult);
   document.getElementById('regenBtn').addEventListener('click', runGenerate);
 
-  setMode('ai');
+  setMode('free');
 });

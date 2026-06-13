@@ -27,7 +27,7 @@
         <span class="pill mb-4">🎁 The Sleaze Machine</span>
         <h1 class="headline text-6xl sm:text-7xl mb-4">Unwrap your <span class="neon-red">face</span></h1>
         <p class="text-[var(--muted)]">Upload a photo, choose your mode, then hit generate to watch the gift box burst open. Your photo is processed in your browser — AI calls go straight to your provider.</p>
-        <p class="text-xs text-[var(--muted)] mt-3 opacity-70">✨ <b>AI mode</b> swaps in a luxury billionaire-Santa fit while preserving your face &amp; pose (needs an API key). 🎨 <b>Quick overlay</b> works instantly, no key.</p>
+        <p class="text-xs text-[var(--muted)] mt-3 opacity-70">✨ <b>Free AI</b> — instant billionaire Santa, no key (text-to-image). 💎 <b>HD AI</b> — face-accurate outfit swap (free Gemini key). 🎨 <b>Overlay</b> — local festive frame, no key.</p>
       </div>
     </section>
 
@@ -45,14 +45,29 @@
 
           <div id="controls" class="card p-6 opacity-40 pointer-events-none transition">
             <!-- mode toggle -->
-            <div class="flex gap-2 p-1 rounded-xl bg-[rgba(255,255,255,.04)] mb-5">
-              <button data-mode="ai" class="mode-btn flex-1 py-2 rounded-lg text-sm font-bold transition">✨ AI Billionaire Santa</button>
-              <button data-mode="overlay" class="mode-btn flex-1 py-2 rounded-lg text-sm font-bold transition">🎨 Quick Overlay</button>
+            <div class="grid grid-cols-3 gap-2 p-1 rounded-xl bg-[rgba(255,255,255,.04)] mb-5">
+              <button data-mode="free" class="mode-btn py-2 rounded-lg text-xs font-bold transition">✨ Free AI</button>
+              <button data-mode="gemini" class="mode-btn py-2 rounded-lg text-xs font-bold transition">💎 HD AI</button>
+              <button data-mode="overlay" class="mode-btn py-2 rounded-lg text-xs font-bold transition">🎨 Overlay</button>
             </div>
 
-            <!-- AI panel -->
-            <div id="aiPanel">
-              <div class="eyebrow mb-3">AI outfit swap</div>
+            <!-- Free panel (Pollinations, no key) -->
+            <div id="freePanel">
+              <div class="eyebrow mb-3">Free generator · no key</div>
+              <p class="text-xs text-[var(--muted)] mb-3 leading-relaxed">
+                Instantly conjures a luxury billionaire Santa via <a href="https://pollinations.ai" target="_blank" rel="noopener" class="neon-green underline">Pollinations.ai</a> — 100% free, no signup. 🎅💎
+              </p>
+              <label class="text-xs font-semibold block mb-1">Subject hint <span class="text-[var(--muted)] font-normal">(optional)</span></label>
+              <input id="subjectHint" type="text" placeholder="e.g. a man, a woman, a cartoon dog"
+                     class="w-full px-3 py-2 rounded-lg bg-[rgba(255,255,255,.05)] border border-[var(--line)] text-sm outline-none focus:border-[var(--green)]" />
+              <p class="text-[11px] text-[var(--muted)] mt-2 leading-relaxed">
+                ⚠️ Free mode is <b>text-to-image</b> — it creates a fresh Santa from the prompt rather than tracing your exact face. For a face-accurate swap, use <b>💎 HD AI</b>.
+              </p>
+            </div>
+
+            <!-- HD AI panel (Gemini, identity-preserving) -->
+            <div id="aiPanel" class="hidden">
+              <div class="eyebrow mb-3">HD · face-accurate swap</div>
               <p class="text-xs text-[var(--muted)] mb-3 leading-relaxed">
                 Keeps your face &amp; pose, swaps in a luxury velvet Santa fit, diamond grillz &amp; iced-out chains. 🧊💎
               </p>

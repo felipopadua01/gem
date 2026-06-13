@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap · Santa Sleaze</title>
+  <meta name="description" content="The Santa Sleaze roadmap — from the North Pole to the galaxy." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#07070c', surface:'#12121d', red:'#ff2d55', green:'#2bff88', gold:'#ffd76a', ice:'#bfe9ff', muted:'#9a9ab0' },
+      fontFamily: { display:['"Bebas Neue"','sans-serif'] }
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+</head>
+<body>
+  <main class="pt-28">
+    <section class="section pb-0">
+      <div class="container-x text-center max-w-2xl mx-auto reveal">
+        <span class="pill mb-4">🗺️ The Sleigh Route</span>
+        <h1 class="headline text-6xl sm:text-8xl mb-4"><span class="neon-green">Roadmap</span></h1>
+        <p class="text-[var(--muted)]">Four phases of festive chaos. No promises, just vibes — and a lot of snow.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x max-w-3xl mx-auto relative">
+        <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2" style="background:repeating-linear-gradient(180deg,var(--red) 0 8px,transparent 8px 16px,var(--green) 16px 24px,transparent 24px 32px);opacity:.5;"></div>
+
+        <div class="space-y-10">
+          <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-10 reveal">
+            <div class="md:text-right md:pr-10">
+              <span class="absolute left-6 md:left-1/2 -translate-x-1/2 top-2 text-2xl">❄️</span>
+              <span class="pill mb-3">Phase 1 · North Pole</span>
+              <h3 class="font-display text-4xl mb-2">Lift off</h3>
+              <p class="text-[var(--muted)] text-sm">Launch $SLEAZE, lock liquidity, ship the website and the festive generator. Build the naughty list.</p>
+            </div>
+            <div></div>
+          </div>
+
+          <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-10 reveal" data-delay="100">
+            <div></div>
+            <div class="md:pl-10">
+              <span class="absolute left-6 md:left-1/2 -translate-x-1/2 top-2 text-2xl">🛷</span>
+              <span class="pill mb-3">Phase 2 · The Sleigh</span>
+              <h3 class="font-display text-4xl mb-2">Spread the sleaze</h3>
+              <p class="text-[var(--muted)] text-sm">Wire in the real AI face-to-meme model, launch community meme contests, CoinGecko / CMC listings, and trending pushes.</p>
+            </div>
+          </div>
+
+          <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-10 reveal" data-delay="200">
+            <div class="md:text-right md:pr-10">
+              <span class="absolute left-6 md:left-1/2 -translate-x-1/2 top-2 text-2xl">🎄</span>
+              <span class="pill mb-3">Phase 3 · Winter Wonderland</span>
+              <h3 class="font-display text-4xl mb-2">Sleaze ecosystem</h3>
+              <p class="text-[var(--muted)] text-sm">On-chain gallery, holder-only frames and effects, animated meme exports, and CEX listings. Partnerships with other festive degens.</p>
+            </div>
+            <div></div>
+          </div>
+
+          <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-10 reveal" data-delay="300">
+            <div></div>
+            <div class="md:pl-10">
+              <span class="absolute left-6 md:left-1/2 -translate-x-1/2 top-2 text-2xl">🚀</span>
+              <span class="pill mb-3">Phase 4 · The Galaxy</span>
+              <h3 class="font-display text-4xl mb-2">Sleaze forever</h3>
+              <p class="text-[var(--muted)] text-sm">Make Santa Sleaze a year-round meme staple. Merch, IRL events, and keeping Christmas alive in July. Ho ho ho. 🌌</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container-x text-center reveal">
+        <a href="generator.html" class="btn btn-red text-base">🎁 Start at Phase 1 — Generate</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/effects.js" defer></script>
+</body>
+</html>

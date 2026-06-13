@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Santa Sleaze</title>
+  <meta name="description" content="The lore of Santa Sleaze — the sleaziest Santa on the chain." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎅</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#07070c', surface:'#12121d', red:'#ff2d55', green:'#2bff88', gold:'#ffd76a', ice:'#bfe9ff', muted:'#9a9ab0' },
+      fontFamily: { display:['"Bebas Neue"','sans-serif'] }
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+</head>
+<body>
+  <main class="pt-28">
+    <section class="section pb-0" data-gifts="6">
+      <div class="container-x text-center max-w-3xl mx-auto reveal relative z-10">
+        <span class="pill mb-5">📜 The Lore</span>
+        <h1 class="headline text-6xl sm:text-8xl mb-6">The legend of <span class="neon-red">Santa Sleaze</span></h1>
+        <p class="text-lg text-[var(--muted)]">They said Santa was jolly. They never said he was <span class="text-white font-semibold">clean.</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x grid lg:grid-cols-2 gap-10 items-center">
+        <div class="card card-glow-red p-4 reveal">
+          <div class="aspect-square rounded-2xl bg-gradient-to-br from-[#1a0a16] to-[#0a1a12] flex items-center justify-center text-[10rem] floaty">🎅</div>
+        </div>
+        <div class="reveal" data-delay="120">
+          <h2 class="headline text-5xl mb-5">Born in a <span class="neon-green">blizzard</span> of memes</h2>
+          <p class="text-[var(--muted)] mb-4">Deep in the neon-lit North Pole, where the snow glows red and green, a different kind of Santa was forged — equal parts holiday cheer and pure internet chaos. He doesn't check his list twice. He just <span class="text-white">sleazes.</span></p>
+          <p class="text-[var(--muted)] mb-4">Santa Sleaze is a community meme experiment with one festive mission: turn <span class="text-white">your face</span> into a holiday legend. Upload a photo, and our generator wraps you in the sleaziest Christmas energy on the chain.</p>
+          <p class="text-[var(--muted)]">No roadmap promises the moon. Just snow, gifts, glow, and a token that's as serious as a reindeer in sunglasses. 🦌🕶️</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card card-glow-green p-7 reveal"><div class="text-4xl mb-3">🎁</div><h3 class="font-display text-3xl mb-2">Community owned</h3><p class="text-[var(--muted)] text-sm">No team allocation games. Fair, festive, and fully in the hands of the degens who believe.</p></div>
+          <div class="card card-glow-red p-7 reveal" data-delay="120"><div class="text-4xl mb-3">❄️</div><h3 class="font-display text-3xl mb-2">Utility? It's a meme</h3><p class="text-[var(--muted)] text-sm">The utility is the joy of unwrapping your own face into a Santa Sleaze meme. That's the whole point.</p></div>
+          <div class="card card-glow-green p-7 reveal" data-delay="240"><div class="text-4xl mb-3">🔥</div><h3 class="font-display text-3xl mb-2">Built to spread</h3><p class="text-[var(--muted)] text-sm">Every generated meme is a shareable billboard. Sleaze travels fast when it's this festive.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="card card-glow-red p-10 md:p-14 text-center reveal">
+          <h2 class="headline text-5xl sm:text-6xl mb-4">Get on the <span class="neon-red">naughty</span> list</h2>
+          <p class="text-[var(--muted)] mb-7 max-w-xl mx-auto">It's the only list worth being on this year.</p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="generator.html" class="btn btn-green">🎅 Generate My Sleaze</a>
+            <a href="how-to-buy.html" class="btn btn-ghost">Buy $SLEAZE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/effects.js" defer></script>
+</body>
+</html>

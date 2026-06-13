@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Buy · Santa Sleaze</title>
+  <meta name="description" content="How to buy $SLEAZE in four festive steps." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💸</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#07070c', surface:'#12121d', red:'#ff2d55', green:'#2bff88', gold:'#ffd76a', ice:'#bfe9ff', muted:'#9a9ab0' },
+      fontFamily: { display:['"Bebas Neue"','sans-serif'] }
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+</head>
+<body>
+  <main class="pt-28">
+    <section class="section pb-0">
+      <div class="container-x text-center max-w-2xl mx-auto reveal">
+        <span class="pill mb-4">💸 Four Steps to Sleaze</span>
+        <h1 class="headline text-6xl sm:text-8xl mb-4">How to <span class="neon-red">buy</span></h1>
+        <p class="text-[var(--muted)]">Stuff your stocking with $SLEAZE — no chimney required.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-x grid md:grid-cols-2 gap-6">
+        <div class="card card-glow-green p-8 reveal">
+          <div class="flex items-center gap-4 mb-3"><span class="font-display text-6xl neon-green">1</span><div class="text-4xl">👛</div></div>
+          <h3 class="font-display text-3xl mb-2">Get a wallet</h3>
+          <p class="text-[var(--muted)] text-sm">Install a self-custody wallet like Phantom or MetaMask on your phone or browser. This is your festive sleigh.</p>
+        </div>
+        <div class="card card-glow-red p-8 reveal" data-delay="100">
+          <div class="flex items-center gap-4 mb-3"><span class="font-display text-6xl neon-red">2</span><div class="text-4xl">🪙</div></div>
+          <h3 class="font-display text-3xl mb-2">Fund it</h3>
+          <p class="text-[var(--muted)] text-sm">Buy SOL/ETH from any exchange and send it to your wallet address. Keep a little extra for gas fees.</p>
+        </div>
+        <div class="card card-glow-red p-8 reveal" data-delay="200">
+          <div class="flex items-center gap-4 mb-3"><span class="font-display text-6xl neon-gold">3</span><div class="text-4xl">🔄</div></div>
+          <h3 class="font-display text-3xl mb-2">Swap for $SLEAZE</h3>
+          <p class="text-[var(--muted)] text-sm">Open your DEX of choice, paste the official contract address, and swap. Verify the CA from our pinned socials first!</p>
+        </div>
+        <div class="card card-glow-green p-8 reveal" data-delay="300">
+          <div class="flex items-center gap-4 mb-3"><span class="font-display text-6xl neon-green">4</span><div class="text-4xl">🎅</div></div>
+          <h3 class="font-display text-3xl mb-2">Hold & sleaze</h3>
+          <p class="text-[var(--muted)] text-sm">Welcome to the naughty list. Now head to the generator and turn your face into a Santa Sleaze legend.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="card card-glow-red p-10 md:p-14 text-center reveal" data-gifts="5">
+          <h2 class="headline text-5xl sm:text-6xl mb-4 relative z-10">Now make your <span class="neon-red">meme</span></h2>
+          <p class="text-[var(--muted)] mb-7 relative z-10">You don't even need to hold to play with the generator.</p>
+          <a href="generator.html" class="btn btn-green relative z-10">🎁 Open the Generator</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/effects.js" defer></script>
+</body>
+</html>

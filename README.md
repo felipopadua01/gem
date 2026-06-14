@@ -1,4 +1,4 @@
-# 🎅 SANTA SLEAZE — $SLEAZE
+# 🎅 SANTA SLEAZE — $SS
 
 A neon-grunge **Christmas meme-coin** website with a face-to-meme **image generator**.
 Upload a photo, tune the festive vibe, and watch a **gift box burst open** to reveal your

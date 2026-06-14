@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santa Sleaze · $SLEAZE — The Sleaziest Santa on the Chain</title>
+  <title>Santa Sleaze · $SS — The Sleaziest Santa on the Chain</title>
   <meta name="description" content="SANTA SLEAZE — upload your photo, unwrap your face into a festive meme, and spread Christmas degeneracy. A neon-grunge holiday meme coin." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎅</text></svg>" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +26,7 @@
     <section class="relative section overflow-hidden" data-gifts="8">
       <div class="container-x relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         <div class="reveal">
-          <span class="pill mb-5">🎄 Season's Sleazings · $SLEAZE</span>
+          <span class="pill mb-5">🎄 Season's Sleazings · $SS</span>
           <h1 class="headline text-7xl sm:text-8xl xl:text-9xl mb-5">
             <span class="glitch font-glitch block" data-text="SANTA">SANTA</span>
             <span class="neon-green">SLEAZE</span>
@@ -38,7 +38,7 @@
           </p>
           <div class="flex flex-wrap gap-4">
             <a href="generator.html" class="btn btn-red text-base">🎅 Generate My Sleaze</a>
-            <a href="how-to-buy.html" class="btn btn-green text-base">💸 Buy $SLEAZE</a>
+            <a href="how-to-buy.html" class="btn btn-green text-base">💸 Buy $SS</a>
             <a href="about.html" class="btn btn-ghost text-base">What is this?</a>
           </div>
           <div class="flex items-center gap-8 mt-10 text-sm text-[var(--muted)]">
@@ -55,7 +55,7 @@
               <div class="text-[10rem] leading-none select-none">🎅</div>
               <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 0 6px rgba(255,45,85,.5), inset 0 0 60px rgba(43,255,136,.25); border-radius:1rem;"></div>
               <span class="absolute top-4 left-4 pill">PREVIEW</span>
-              <span class="absolute bottom-4 right-4 font-display text-2xl neon-red">$SLEAZE</span>
+              <span class="absolute bottom-4 right-4 font-display text-2xl neon-red">$SS</span>
             </div>
             <div class="flex items-center justify-between mt-4 px-2">
               <span class="text-sm text-[var(--muted)]">Your face → here</span>
@@ -123,7 +123,7 @@
           <p class="text-[var(--muted)] max-w-xl mx-auto mb-8 relative z-10">No wallet needed to play. Upload, unwrap, and share your festive meme in seconds.</p>
           <div class="flex flex-wrap gap-4 justify-center relative z-10">
             <a href="generator.html" class="btn btn-green text-base">🎄 Open the Generator</a>
-            <a href="how-to-buy.html" class="btn btn-ghost text-base">Buy $SLEAZE</a>
+            <a href="how-to-buy.html" class="btn btn-ghost text-base">Buy $SS</a>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@
   <script defer>
     document.addEventListener('DOMContentLoaded', () => {
       // ticker
-      const items = ['🎅 SANTA SLEAZE','❄️ HO HO HO','<span class="hot">$SLEAZE PUMPING</span>','🎁 UNWRAP YOUR FACE','🎄 MERRY SLEAZEMAS','<span class="ok">+420% FESTIVE</span>','⛄ STAY FROSTY','🔔 0/0 TAX'];
+      const items = ['🎅 SANTA SLEAZE','❄️ HO HO HO','<span class="hot">$SS PUMPING</span>','🎁 UNWRAP YOUR FACE','🎄 MERRY SLEAZEMAS','<span class="ok">+420% FESTIVE</span>','⛄ STAY FROSTY','🔔 0/0 TAX'];
       const html = items.map(i => `<span>${i}</span>`).join('') ;
       document.getElementById('ticker').innerHTML = html + html;
       // featured placeholder tiles
@@ -148,7 +148,7 @@
           <a href="generator.html" class="card p-3 reveal group" data-delay="${i*90}">
             <div class="aspect-square rounded-xl flex items-center justify-center text-6xl bg-gradient-to-br from-[#160a14] to-[#0a160f] group-hover:scale-[1.03] transition" style="box-shadow: inset 0 0 0 4px ${c}66;">${faces[i]}</div>
             <div class="flex items-center justify-between mt-3 px-1 text-xs text-[var(--muted)]">
-              <span>sleaze_#${100+i}</span><span class="font-display text-base">$SLEAZE</span>
+              <span>sleaze_#${100+i}</span><span class="font-display text-base">$SS</span>
             </div>
           </a>`);
       }

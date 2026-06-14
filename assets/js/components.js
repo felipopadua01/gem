@@ -52,14 +52,14 @@ function renderNav() {
       <nav class="hidden lg:flex items-center gap-7">${links}</nav>
       <div class="hidden lg:flex items-center gap-4">
         <div class="flex items-center gap-3">${SOCIALS}</div>
-        <a href="how-to-buy.html" class="btn btn-green text-sm">Buy $SLEAZE</a>
+        <a href="how-to-buy.html" class="btn btn-green text-sm">Buy $SS</a>
       </div>
       <button id="burger" class="lg:hidden text-2xl" aria-label="Menu">☰</button>
     </div>
     <div id="mobileMenu" class="lg:hidden hidden container-x pb-5 border-b border-[var(--line)]">
       ${mobileLinks}
       <div class="flex items-center gap-4 mt-4">${SOCIALS}
-        <a href="how-to-buy.html" class="btn btn-green text-sm ml-auto">Buy $SLEAZE</a>
+        <a href="how-to-buy.html" class="btn btn-green text-sm ml-auto">Buy $SS</a>
       </div>
     </div>`;
   document.body.prepend(nav);
@@ -92,7 +92,7 @@ function renderFooter() {
         <div class="grid grid-cols-2 gap-2 text-sm">${links}</div>
       </div>
       <div>
-        <div class="eyebrow mb-4">Get $SLEAZE</div>
+        <div class="eyebrow mb-4">Get $SS</div>
         <p class="text-[var(--muted)] text-sm mb-4">Not financial advice. This is a meme. Have fun, stay festive, ape responsibly.</p>
         <a href="how-to-buy.html" class="btn btn-red text-sm">🎄 How to Buy</a>
       </div>

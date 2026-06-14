@@ -163,7 +163,7 @@ function drawFrame(ctx, s, style) {
 function drawWatermark(ctx, s) {
   ctx.save(); ctx.font = "700 22px 'Bebas Neue', sans-serif";
   ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.shadowColor = 'rgba(255,45,85,.8)'; ctx.shadowBlur = 10;
-  ctx.textAlign = 'right'; ctx.fillText('$SLEAZE · SANTA SLEAZE', s - 34, s - 30); ctx.restore();
+  ctx.textAlign = 'right'; ctx.fillText('$SS · SANTA SLEAZE', s - 34, s - 30); ctx.restore();
 }
 function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath(); ctx.moveTo(x+r,y);
@@ -355,7 +355,7 @@ async function shareResult() {
     const blob = await (await fetch(currentResultURL())).blob();
     const file = new File([blob], 'santa-sleaze.png', { type: blob.type || 'image/png' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ files: [file], title: 'Santa Sleaze', text: 'I just got Santa Sleazed 🎅 $SLEAZE' });
+      await navigator.share({ files: [file], title: 'Santa Sleaze', text: 'I just got Santa Sleazed 🎅 $SS' });
       return;
     }
   } catch (_) {}

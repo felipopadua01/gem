@@ -13,8 +13,8 @@ const NAV_LINKS = [
 ];
 
 const SOCIALS = `
-  <a href="#" aria-label="X / Twitter" class="hover:text-white text-[var(--muted)] transition">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5-6.5L5.4 22H2.3l8-9.2L1.6 2h6.9l4.5 6 5.9-6Zm-1.2 18h1.7L7.4 3.8H5.6L17.7 20Z"/></svg>
+<a href="https://x.com/santasleaze" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5-6.5L5.4 22H2.3l8-9.2L1.6 2h6.9l4.5 6 5.9-6Zm-1.2 18h1.7L7.4 3.8H5.6L17.7 20Z"/></svg>
   </a>
   <a href="#" aria-label="Telegram" class="hover:text-white text-[var(--muted)] transition">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.4 13.1l-4.8-1.5c-1-.3-1-1 .2-1.5L20.6 2.6c.9-.3 1.6.2 1.3 1.7Z"/></svg>

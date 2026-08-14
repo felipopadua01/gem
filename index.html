@@ -144,8 +144,16 @@
       document.getElementById('ticker').innerHTML = html + html;
       // featured placeholder tiles
       const grid = document.getElementById('featuredGrid');
-      const faces = ['🎅','🤶','🧝','⛄','🦌','🐧','👴','🎩'];
-      const frames = ['#ff2d55','#2bff88','#ffd76a','#bfe9ff'];
+const faces = [
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">'
+];      const frames = ['#ff2d55','#2bff88','#ffd76a','#bfe9ff'];
       for (let i=0;i<4;i++){
         const c = frames[i%frames.length];
         grid.insertAdjacentHTML('beforeend', `

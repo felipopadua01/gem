@@ -3,13 +3,13 @@
    ============================================================ */
 
 const NAV_LINKS = [
-  { href: 'index.html',       label: 'Home' },
-  { href: 'generator.html',   label: 'Generator' },
-  { href: 'about.html',       label: 'About' },
-  { href: 'tokenomics.html',  label: 'Tokenomics' },
-  { href: 'how-to-buy.html',  label: 'How to Buy' },
-  { href: 'roadmap.html',     label: 'Roadmap' },
-  { href: 'gallery.html',     label: 'Gallery' },
+{ href: '/',            label: 'Home' },
+{ href: '/generator',   label: 'Generator' },
+{ href: '/about',       label: 'About' },
+{ href: '/tokenomics',  label: 'Tokenomics' },
+{ href: '/how-to-buy',  label: 'How to Buy' },
+{ href: '/roadmap',     label: 'Roadmap' },
+{ href: '/gallery',     label: 'Gallery' },
 ];
 
 const SOCIALS = `

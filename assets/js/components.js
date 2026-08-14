@@ -12,8 +12,8 @@ const NAV_LINKS = [
   { href: 'gallery.html',     label: 'Gallery' },
 ];
 
-const SOCIALS = `
-<a href="#" aria-label="X / Twitter" class="hover:text-white text-[var(--muted)] transition">
+const SOCIALS = 
+<a href="https://x.com/santasleaze" aria-label="X / Twitter" class="hover:text-white text-[var(--muted)] transition">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5-6.5L5.4 22H2.3l8-9.2L1.6 2h6.9l4.5 6 5.9-6Zm-1.2 18h1.7L7.4 3.8H5.6L17.7 20Z"/></svg>
   </a>
   <a href="#" aria-label="Telegram" class="hover:text-white text-[var(--muted)] transition">

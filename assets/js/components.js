@@ -33,17 +33,55 @@ const SOCIALS = `
 
 
 /* ============================================================
+   PAGE NORMALIZER
+   ============================================================ */
+
+function normalizePath(path) {
+
+  // Remove query/hash
+  path = path.split('?')[0].split('#')[0];
+
+  // Convert index.html to /
+  if (path === '/index.html') {
+    return '/';
+  }
+
+  // Remove .html if it still exists
+  path = path.replace(/\.html$/, '');
+
+  // Always start with /
+  if (!path.startsWith('/')) {
+    path = '/' + path;
+  }
+
+  // Add trailing slash except for root
+  if (path !== '/' && !path.endsWith('/')) {
+    path += '/';
+  }
+
+  return path.toLowerCase();
+}
+
+
+/* ============================================================
    CURRENT PAGE
    ============================================================ */
 
 function currentPage() {
-  const path = location.pathname;
+  return normalizePath(location.pathname);
+}
 
-  if (path === '/' || path === '') {
-    return '/';
-  }
 
-  return path.endsWith('/') ? path : path + '/';
+/* ============================================================
+   CHECK ACTIVE LINK
+   ============================================================ */
+
+function isActivePage(href) {
+
+  const current = currentPage();
+  const target = normalizePath(href);
+
+  return current === target;
 }
 
 
@@ -52,15 +90,38 @@ function currentPage() {
    ============================================================ */
 
 function renderNav() {
-  const here = currentPage();
 
-  const links = NAV_LINKS.map(l =>
-    `<a href="${l.href}" class="nav-link ${l.href === here ? 'active' : ''}">${l.label}</a>`
-  ).join('');
+  const links = NAV_LINKS.map(l => {
 
-  const mobileLinks = NAV_LINKS.map(l =>
-    `<a href="${l.href}" class="block py-3 nav-link ${l.href === here ? 'active' : ''}">${l.label}</a>`
-  ).join('');
+    const active = isActivePage(l.href);
+
+    return `
+      <a
+        href="${l.href}"
+        class="nav-link ${active ? 'active' : ''}"
+      >
+        ${l.label}
+      </a>
+    `;
+
+  }).join('');
+
+
+  const mobileLinks = NAV_LINKS.map(l => {
+
+    const active = isActivePage(l.href);
+
+    return `
+      <a
+        href="${l.href}"
+        class="block py-3 nav-link ${active ? 'active' : ''}"
+      >
+        ${l.label}
+      </a>
+    `;
+
+  }).join('');
+
 
   const nav = document.createElement('header');
 
@@ -72,17 +133,21 @@ function renderNav() {
     <div class="container-x flex items-center justify-between py-4">
 
       <a href="/" class="flex items-center gap-2 group">
+
         <span class="text-2xl">🎅</span>
 
         <span class="font-glitch text-xl tracking-tight">
           <span class="neon-red">SANTA</span>
           <span class="neon-green">SLEAZE</span>
         </span>
+
       </a>
+
 
       <nav class="hidden lg:flex items-center gap-7">
         ${links}
       </nav>
+
 
       <div class="hidden lg:flex items-center gap-4">
 
@@ -90,11 +155,15 @@ function renderNav() {
           ${SOCIALS}
         </div>
 
-        <a href="/how-to-buy/" class="btn btn-green text-sm">
+        <a
+          href="/how-to-buy/"
+          class="btn btn-green text-sm"
+        >
           Buy $SS
         </a>
 
       </div>
+
 
       <button
         id="burger"
@@ -105,6 +174,7 @@ function renderNav() {
       </button>
 
     </div>
+
 
     <div
       id="mobileMenu"
@@ -129,6 +199,7 @@ function renderNav() {
     </div>
   `;
 
+
   document.body.prepend(nav);
 
 
@@ -137,17 +208,21 @@ function renderNav() {
      ========================================================== */
 
   const onScroll = () => {
+
     nav.classList.toggle(
       'scrolled',
       window.scrollY > 24
     );
+
   };
+
 
   window.addEventListener(
     'scroll',
     onScroll,
     { passive: true }
   );
+
 
   onScroll();
 
@@ -159,9 +234,13 @@ function renderNav() {
   const burger = nav.querySelector('#burger');
   const menu = nav.querySelector('#mobileMenu');
 
+
   burger.addEventListener('click', () => {
+
     menu.classList.toggle('hidden');
+
   });
+
 }
 
 
@@ -171,20 +250,34 @@ function renderNav() {
 
 function renderFooter() {
 
-  const links = NAV_LINKS.map(l =>
-    `<a href="${l.href}" class="nav-link">${l.label}</a>`
-  ).join('');
+  const links = NAV_LINKS.map(l => {
+
+    const active = isActivePage(l.href);
+
+    return `
+      <a
+        href="${l.href}"
+        class="nav-link ${active ? 'active' : ''}"
+      >
+        ${l.label}
+      </a>
+    `;
+
+  }).join('');
+
 
   const footer = document.createElement('footer');
 
   footer.className =
     'mt-10 border-t border-[var(--line)] bg-[rgba(7,7,12,.6)]';
 
+
   footer.innerHTML = `
 
     <div class="divider-lights"></div>
 
     <div class="container-x py-12 grid gap-10 md:grid-cols-3">
+
 
       <div>
 
@@ -258,9 +351,12 @@ function renderFooter() {
       </span>
 
     </div>
+
   `;
 
+
   document.body.appendChild(footer);
+
 }
 
 
@@ -269,6 +365,8 @@ function renderFooter() {
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+
   renderNav();
   renderFooter();
+
 });

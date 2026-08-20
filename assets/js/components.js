@@ -3,13 +3,13 @@
    ============================================================ */
 
 const NAV_LINKS = [
-  { href: '/',                label: 'Home' },
-  { href: '/generator/',   label: 'Generator' },
-  { href: '/about/',       label: 'About' },
-  { href: 'tokenomics.html',  label: 'Tokenomics' },
-  { href: 'how-to-buy.html',  label: 'How to Buy' },
-  { href: 'roadmap.html',     label: 'Roadmap' },
-  { href: 'gallery.html',     label: 'Gallery' },
+  { href: '/',              label: 'Home' },
+  { href: '/generator/',    label: 'Generator' },
+  { href: '/about/',        label: 'About' },
+  { href: '/tokenomics/',   label: 'Tokenomics' },
+  { href: '/how-to-buy/',   label: 'How to Buy' },
+  { href: '/roadmap/',      label: 'Roadmap' },
+  { href: '/gallery/',      label: 'Gallery' },
 ];
 
 const SOCIALS = `
@@ -37,8 +37,13 @@ const SOCIALS = `
    ============================================================ */
 
 function currentPage() {
-  const path = location.pathname.split('/').pop();
-  return path === '' ? '/' : path;
+  const path = location.pathname;
+
+  if (path === '/' || path === '') {
+    return '/';
+  }
+
+  return path.endsWith('/') ? path : path + '/';
 }
 
 
@@ -85,7 +90,7 @@ function renderNav() {
           ${SOCIALS}
         </div>
 
-        <a href="how-to-buy.html" class="btn btn-green text-sm">
+        <a href="/how-to-buy/" class="btn btn-green text-sm">
           Buy $SS
         </a>
 
@@ -113,7 +118,7 @@ function renderNav() {
         ${SOCIALS}
 
         <a
-          href="how-to-buy.html"
+          href="/how-to-buy/"
           class="btn btn-green text-sm ml-auto"
         >
           Buy $SS
@@ -226,7 +231,7 @@ function renderFooter() {
         </p>
 
         <a
-          href="how-to-buy.html"
+          href="/how-to-buy/"
           class="btn btn-red text-sm"
         >
           🎄 How to Buy

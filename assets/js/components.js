@@ -4,7 +4,7 @@
 
 const NAV_LINKS = [
   { href: '/',                label: 'Home' },
-  { href: 'generator.html',   label: 'Generator' },
+  { href: '/generator/',   label: 'Generator' },
   { href: 'about.html',       label: 'About' },
   { href: 'tokenomics.html',  label: 'Tokenomics' },
   { href: 'how-to-buy.html',  label: 'How to Buy' },

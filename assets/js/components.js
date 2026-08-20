@@ -3,7 +3,7 @@
    ============================================================ */
 
 const NAV_LINKS = [
-{ href: 'index.html',       label: 'Home' },
+{ href: '/',       label: 'Home' },
 { href: 'generator.html',   label: 'Generator' },
 { href: 'about.html',       label: 'About' },
 { href: 'tokenomics.html',  label: 'Tokenomics' },

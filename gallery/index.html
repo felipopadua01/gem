@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Gallery · Santa Sleaze</title>
+
+  <meta
+    name="description"
+    content="A wall of Santa Sleaze community memes. Make your own in the generator."
+  />
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#07070c',
+            surface: '#12121d',
+            red: '#ff2d55',
+            green: '#2bff88',
+            gold: '#ffd76a',
+            ice: '#bfe9ff',
+            muted: '#9a9ab0'
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Rubik+Glitch&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Effects libraries -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"
+    defer
+  ></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"
+    defer
+  ></script>
+</head>
+
+<body>
+
+  <main class="pt-28">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="section pb-0">
+
+      <div class="container-x text-center max-w-2xl mx-auto reveal">
+
+        <span class="pill mb-4">
+          🖼️ The Sleaze Wall
+        </span>
+
+        <h1 class="headline text-6xl sm:text-8xl mb-4">
+          <span class="neon-red">Gallery</span>
+        </h1>
+
+        <p class="text-[var(--muted)]">
+          A festive wall of unwrapped faces.
+          These are placeholders — your masterpiece belongs here.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GALLERY
+         ===================================================== -->
+
+    <section class="section">
+
+      <div class="container-x">
+
+        <div
+          id="galleryGrid"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+        ></div>
+
+
+        <div class="text-center mt-12 reveal">
+
+          <a
+            href="/generator/"
+            class="btn btn-green text-base"
+          >
+            🎁 Add yours — Generate
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       SHARED COMPONENTS
+       ===================================================== -->
+
+  <script
+    src="/assets/js/components.js"
+    defer
+  ></script>
+
+  <script
+    src="/assets/js/effects.js"
+    defer
+  ></script>
+
+
+  <!-- =====================================================
+       GALLERY SCRIPT
+       ===================================================== -->
+
+  <script defer>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const grid = document.getElementById('galleryGrid');
+
+
+      const faces = [
+
+        '<img src="/assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze1.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze2.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze3.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze4.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze5.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze6.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze7.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze8.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze9.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze10.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+
+        '<img src="/assets/santa-sleaze11.jpg" class="w-full h-full object-cover" alt="Santa Sleaze">'
+
+      ];
+
+
+      const frames = [
+        '#ff2d55',
+        '#2bff88',
+        '#ffd76a',
+        '#bfe9ff'
+      ];
+
+
+      faces.forEach((f, i) => {
+
+        const c = frames[i % frames.length];
+
+
+        grid.insertAdjacentHTML(
+          'beforeend',
+          `
+            <a
+              href="/generator/"
+              class="card p-3 group reveal in"
+              style="transition-delay:${(i % 4) * 60}ms"
+            >
+
+              <div
+                class="aspect-square rounded-xl flex items-center justify-center text-6xl bg-gradient-to-br from-[#160a14] to-[#0a160f] group-hover:scale-[1.03] transition"
+                style="
+                  box-shadow:
+                    inset 0 0 0 4px ${c}66,
+                    inset 0 0 30px ${c}22;
+                "
+              >
+                ${f}
+              </div>
+
+
+              <div
+                class="flex items-center justify-between mt-3 px-1 text-xs text-[var(--muted)]"
+              >
+
+                <span>
+                  sleaze_#${100 + i}
+                </span>
+
+                <span
+                  class="font-display text-base"
+                  style="color:${c}"
+                >
+                  $SS
+                </span>
+
+              </div>
+
+            </a>
+          `
+        );
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

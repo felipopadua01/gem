@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santa Sleaze · $SS — The Sleaziest Santa on the Chain</title>
+  <meta name="description" content="SANTA SLEAZE — upload your photo, unwrap your face into a festive meme, and spread Christmas degeneracy. A neon-grunge holiday meme coin." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎅</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { ink:'#07070c', surface:'#12121d', red:'#ff2d55', green:'#2bff88', gold:'#ffd76a', ice:'#bfe9ff', muted:'#9a9ab0' },
+      fontFamily: { display:['"Bebas Neue"','sans-serif'] }
+    }}};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Mountains+of+Christmas:wght@700&family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+</head>
+<body>
+  <!-- ===== HERO ===== -->
+  <main class="pt-28">
+    <section class="relative section overflow-hidden" data-gifts="8">
+      <div class="container-x relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <span class="pill mb-5">🎄 Season's Sleazings · $SS</span>
+          <h1 class="headline text-7xl sm:text-8xl xl:text-9xl mb-5">
+            <span class="glitch font-glitch block" data-text="SANTA">SANTA</span>
+            <span class="neon-green">SLEAZE</span>
+          </h1>
+          <p class="text-lg text-[var(--muted)] max-w-xl mb-8">
+            Drop your face into the sleigh. Our generator wraps you in neon snow,
+            a crooked Santa hat, and pure holiday degeneracy — then
+            <span class="text-white font-semibold">unwraps the meme like a gift.</span> 🎁
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="generator.html" class="btn btn-red text-base">🎅 Generate My Sleaze</a>
+            <a href="how-to-buy.html" class="btn btn-green text-base">💸 Buy $SS</a>
+            <a href="about.html" class="btn btn-ghost text-base">What is this?</a>
+          </div>
+          <div class="flex items-center gap-8 mt-10 text-sm text-[var(--muted)]">
+            <div><div class="font-display text-3xl text-white">1B</div>Total Supply</div>
+            <div><div class="font-display text-3xl neon-green">0/0</div>Buy / Sell Tax</div>
+            <div><div class="font-display text-3xl neon-gold">100%</div>Festive Energy</div>
+          </div>
+        </div>
 
+        <!-- hero visual -->
+        <div class="reveal" data-delay="150">
+          <div class="card card-glow-red p-4 floaty">
+            <div class="relative rounded-2xl overflow-hidden aspect-square bg-gradient-to-br from-[#1a0a16] to-[#0a1a12] flex items-center justify-center">
+              <img
+  src="assets/santa-sleaze.png"
+  alt="Santa Sleaze"
+  class="w-full h-full object-cover"
+/>
+              <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 0 6px rgba(255,45,85,.5), inset 0 0 60px rgba(43,255,136,.25); border-radius:1rem;"></div>
+              <span class="absolute top-4 left-4 pill">PREVIEW</span>
+              <span class="absolute bottom-4 right-4 font-display text-2xl neon-red">$SS</span>
+            </div>
+            <div class="flex items-center justify-between mt-4 px-2">
+              <span class="text-sm text-[var(--muted)]">Your face → here</span>
+              <a href="generator.html" class="text-sm neon-green font-semibold">Try it →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TICKER ===== -->
+    <div class="ticker">
+      <div class="ticker__track" id="ticker"></div>
+    </div>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section">
+      <div class="container-x">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <div class="eyebrow mb-3">Unwrap in 3 steps</div>
+          <h2 class="headline text-5xl sm:text-6xl">How the <span class="neon-red">Sleaze</span> happens</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card card-glow-green p-7 reveal">
+            <div class="text-4xl mb-4">📸</div>
+            <h3 class="font-display text-3xl mb-2">1 · Upload</h3>
+            <p class="text-[var(--muted)] text-sm">Drop a selfie or any photo. It never leaves your browser — compositing happens locally.</p>
+          </div>
+          <div class="card card-glow-red p-7 reveal" data-delay="120">
+            <div class="text-4xl mb-4">🎛️</div>
+            <h3 class="font-display text-3xl mb-2">2 · Sleaze it</h3>
+            <p class="text-[var(--muted)] text-sm">Add the crooked hat, crank the snow, pick a neon frame. Make it gloriously festive.</p>
+          </div>
+          <div class="card card-glow-green p-7 reveal" data-delay="240">
+            <div class="text-4xl mb-4">🎁</div>
+            <h3 class="font-display text-3xl mb-2">3 · Unwrap</h3>
+            <p class="text-[var(--muted)] text-sm">Hit generate, watch the gift box burst open, and download your Santa Sleaze meme.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED STRIP ===== -->
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="flex items-end justify-between mb-10 reveal">
+          <div>
+            <div class="eyebrow mb-3">Fresh from the sleigh</div>
+            <h2 class="headline text-5xl sm:text-6xl">Featured <span class="neon-green">Sleazes</span></h2>
+          </div>
+          <a href="gallery.html" class="btn btn-ghost hidden sm:inline-flex">View gallery →</a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5" id="featuredGrid"></div>
+        <div class="text-center mt-8 sm:hidden">
+          <a href="gallery.html" class="btn btn-ghost">View gallery →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section pt-0">
+      <div class="container-x">
+        <div class="card card-glow-red p-10 md:p-16 text-center relative overflow-hidden reveal" data-gifts="6">
+          <h2 class="headline text-5xl sm:text-7xl mb-4 relative z-10">Ready to get <span class="neon-red">Sleazed?</span></h2>
+          <p class="text-[var(--muted)] max-w-xl mx-auto mb-8 relative z-10">No wallet needed to play. Upload, unwrap, and share your festive meme in seconds.</p>
+          <div class="flex flex-wrap gap-4 justify-center relative z-10">
+            <a href="generator.html" class="btn btn-green text-base">🎄 Open the Generator</a>
+            <a href="how-to-buy.html" class="btn btn-ghost text-base">Buy $SS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/effects.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ticker
+      const items = ['🎅 SANTA SLEAZE','❄️ HO HO HO','<span class="hot">$SS PUMPING</span>','🎁 UNWRAP YOUR FACE','🎄 MERRY SLEAZEMAS','<span class="ok">+420% FESTIVE</span>','⛄ STAY FROSTY','🔔 0/0 TAX'];
+      const html = items.map(i => `<span>${i}</span>`).join('') ;
+      document.getElementById('ticker').innerHTML = html + html;
+      // featured placeholder tiles
+      const grid = document.getElementById('featuredGrid');
+const faces = [
+  '<img src="assets/santa-sleaze.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze1.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze2.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+  '<img src="assets/santa-sleaze3.png" class="w-full h-full object-cover" alt="Santa Sleaze">',
+];      const frames = ['#ff2d55','#2bff88','#ffd76a','#bfe9ff'];
+      for (let i=0;i<4;i++){
+        const c = frames[i%frames.length];
+        grid.insertAdjacentHTML('beforeend', `
+          <a href="generator.html" class="card p-3 reveal group" data-delay="${i*90}">
+            <div class="aspect-square rounded-xl flex items-center justify-center text-6xl bg-gradient-to-br from-[#160a14] to-[#0a160f] group-hover:scale-[1.03] transition" style="box-shadow: inset 0 0 0 4px ${c}66;">${faces[i]}</div>
+            <div class="flex items-center justify-between mt-3 px-1 text-xs text-[var(--muted)]">
+              <span>sleaze_#${100+i}</span><span class="font-display text-base">$SS</span>
+            </div>
+          </a>`);
+      }
+      if (window.IntersectionObserver){ // re-run reveal for injected nodes
+        document.querySelectorAll('#featuredGrid .reveal').forEach(e=>e.classList.add('in'));
+      }
+    });
+  </script>
+</body>
+</html>

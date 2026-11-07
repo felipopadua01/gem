@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +31,23 @@
       </div>
     </section>
 
+    <!-- CENTRALIZED TOKENOMICS CARDS -->
     <section class="section">
-      <div class="container-x grid md:grid-cols-4 gap-5">
-        <div class="card card-glow-red p-7 text-center reveal"><div class="font-display text-5xl neon-red mb-1">1B</div><div class="text-xs text-[var(--muted)] uppercase tracking-widest">Total Supply</div></div>
-        <div class="card card-glow-green p-7 text-center reveal" data-delay="80"><div class="font-display text-5xl neon-green mb-1">0/0</div><div class="text-xs text-[var(--muted)] uppercase tracking-widest">Buy / Sell Tax</div></div>
-        <div class="card card-glow-red p-7 text-center reveal" data-delay="160"><div class="font-display text-5xl neon-gold mb-1">🔒</div><div class="text-xs text-[var(--muted)] uppercase tracking-widest">Dev Locked</div></div>
+      <div class="container-x">
+        <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          <div class="card card-glow-red p-7 text-center reveal">
+            <div class="font-display text-5xl neon-red mb-1">1B</div>
+            <div class="text-xs text-[var(--muted)] uppercase tracking-widest">Total Supply</div>
+          </div>
+          <div class="card card-glow-green p-7 text-center reveal" data-delay="80">
+            <div class="font-display text-5xl neon-green mb-1">0/0</div>
+            <div class="text-xs text-[var(--muted)] uppercase tracking-widest">Buy / Sell Tax</div>
+          </div>
+          <div class="card card-glow-red p-7 text-center reveal" data-delay="160">
+            <div class="font-display text-5xl neon-gold mb-1">🔒</div>
+            <div class="text-xs text-[var(--muted)] uppercase tracking-widest">Dev Locked</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -82,7 +95,13 @@
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('copyCa');
       btn.addEventListener('click', async () => {
-        try { await navigator.clipboard.writeText(document.getElementById('ca').textContent); btn.textContent = 'Copied! 🎄'; setTimeout(()=>btn.textContent='Copy',1600);} catch(_){ btn.textContent='Copy manually'; }
+        try {
+          await navigator.clipboard.writeText(document.getElementById('ca').textContent);
+          btn.textContent = 'Copied! 🎄';
+          setTimeout(() => btn.textContent = 'Copy', 1600);
+        } catch (_) {
+          btn.textContent = 'Copy manually';
+        }
       });
     });
   </script>

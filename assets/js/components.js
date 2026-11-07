@@ -145,7 +145,9 @@ function renderNav() {
         </div>
 
         <a
-          href="/how-to-buy/"
+          href="https://dexscreener.com/solana/"
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn btn-green text-sm"
         >
           Buy $SS
@@ -177,7 +179,9 @@ function renderNav() {
         ${SOCIALS}
 
         <a
-          href="/how-to-buy/"
+          href="https://dexscreener.com/solana/"
+          target="_blank"
+          rel="noopener noreferrer"
           class="btn btn-green text-sm ml-auto"
         >
           Buy $SS

@@ -359,3 +359,31 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFooter();
 
 });
+
+
+/* ============================================================
+   CLOUDFLARE WEB ANALYTICS — SANTA SLEAZE
+   ============================================================ */
+
+(function initializeCloudflareAnalytics() {
+
+  // Prevent duplicate installation
+  if (document.querySelector('script[data-cf-beacon]')) {
+    return;
+  }
+
+  const script = document.createElement('script');
+
+  script.type = 'module';
+  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+
+  script.setAttribute(
+    'data-cf-beacon',
+    JSON.stringify({
+      token: 'c26eb38810ed4d9a8236653e96cb1829'
+    })
+  );
+
+  document.head.appendChild(script);
+
+})();
